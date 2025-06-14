@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API Automation User Test Cases Smoke Suite">
+    <test name="API User Test TestCases">
+        <groups>
+            <run>
+                <include name="testJson"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="userManagement.getUser" />
+        </classes>
+    </test>
+</suite>

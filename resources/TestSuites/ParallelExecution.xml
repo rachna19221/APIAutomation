@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API Automation Test Cases parallel execution" parallel="classes" thread-count="2">
+    <test name="API User TestCases">
+        <classes>
+            <class name="userManagement.getUser" />
+            <class name="userManagement.getPostmanEcho" />
+        </classes>
+    </test>
+</suite>
