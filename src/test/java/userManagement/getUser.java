@@ -1,5 +1,6 @@
 package userManagement;
 
+import core.BaseTest;
 import core.statusCode;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -7,6 +8,7 @@ import org.json.simple.parser.ParseException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import utils.ExtentReport;
 import utils.JsonReader;
 import utils.propertyReader;
 import utils.softAssertionUtil;
@@ -27,7 +29,7 @@ import static org.hamcrest.Matchers.not;
 import static org.testng.Assert.assertEquals;
 
 
-public class getUser {
+public class getUser extends BaseTest {
     softAssertionUtil softAssert=new softAssertionUtil();
 
     //private String token;
@@ -122,6 +124,7 @@ public class getUser {
 
     @Test(groups="SmokeSuite")
     public void testGetUserListWithHeader() {
+        ExtentReport.extentlog = ExtentReport.extentReport.createTest("testGetUserListWithHeader", "validate the username in the response with header");
         given()
                 .header("Content-Type", "application/json")
                 .header("x-api-key","reqres-free-v1")
@@ -148,6 +151,7 @@ public class getUser {
     @Test(groups={"SmokeSuite","RegressionSuite"})
     public void testGetUserList() {
         // Set base URI for the API
+        ExtentReport.extentlog = ExtentReport.extentReport.createTest("testGetUserList", "validate the username in the response");
         RestAssured.baseURI = "https://reqres.in/api";
 
         // Create a Map to hold headers
@@ -183,6 +187,7 @@ public class getUser {
 
     @Test(groups="SmokeSuite")
     public void validateWithDataFromPropertiesFile() throws IOException, ParseException {
+        ExtentReport.extentlog = ExtentReport.extentReport.createTest("validateWithDataFromPropertiesFile", "validateWithDataFromPropertiesFile executed successfully");
         String serverAddress = propertyReader.propertyReader("environment.properties","serverAddress");
         // Set base URI for the API
         System.out.println("Server Address is : " + serverAddress);
